@@ -1,0 +1,21 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: archlinux
+    driver_config:
+      platform: arch
+      require_chef_omnibus: false
+      dockerfile: dockerfile
+      use_cache: true
+
+suites:
+  - name: default
+    run_list:
+      - recipe[confies::default]
+    attributes:
