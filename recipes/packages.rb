@@ -17,7 +17,7 @@ packages = [
   "awesome",
   "hddtemp",
   "scrot",
-  "rxvt-unicode",
+  "rxvt-unicode-better-wheel-scrolling",
   "xorg-server",
   "archey",
   "spotify",

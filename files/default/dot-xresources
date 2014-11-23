@@ -84,3 +84,5 @@ URxvt.keysym.Control-Shift-Tab: perl:tabbedex:prev_tab
 URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tab-fg: 0
 URxvt.tabbed.tab-bg: 14
+
+URxvt.secondaryWheel: 1
