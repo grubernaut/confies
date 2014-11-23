@@ -7,31 +7,18 @@
 # All rights reserved - Do Not Redistribute
 #
 
-user "mufasa" do
+user "jake" do
   action :create
   supports :manage_home => true
   comment "Jake Champlin"
-  home "/home/mufasa"
+  home "/home/jake"
   shell "/bin/zsh"
   password "$1$tbTRVpAx$MFSCA6xGs0uPsNNVliTr10"
 end
 
-group "mufasa" do
+group "jake" do
   action :create
-  members "mufasa"
+  members "jake"
 end
 
-group "wheel" do
-  action :create
-  members ["mufasa", "jake"]
-end
-
-group "docker" do
-  action :create
-  members ["mufasa", "jake"]
-end
-
-sudo 'wheel' do
-  group "%wheel"
-  nopasswd true
-end
+# Wheel, and docker groups are managed in the "user" recipe
