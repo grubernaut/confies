@@ -1,0 +1,7 @@
+{
+  "id"      : "mufasa",
+  "comment" : "Jake Champlin",
+  "home"    : "/home/mufasa",
+  "groups"  : ["mufasa", "docker", "wheel"],
+  "password": "$1$tbTRVpAx$MFSCA6xGs0uPsNNVliTr10"
+}

@@ -7,72 +7,80 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# Setup Config Directory
-dirs = [
-  "/home/mufasa/",
-  "/home/mufasa/.config",
-  "/home/mufasa/.config/systemd",
-  "/home/mufasa/.config/systemd/user"
-]
+# Loop Through All Users for These Dots
 
-dirs.each do |path|
-  directory path do
-    owner 'mufasa'
-    group 'mufasa'
-    mode '0755'
+admins = data_bag('users')
+
+admins.each do |login|
+  admin = data_bag_item('users', login)
+
+  # Setup Config Directory
+  dirs = [
+    admin['home'],
+    "#{admin['home']}/.config",
+    "#{admin['home']}/.config/systemd",
+    "#{admin['home']}/.config/systemd/user"
+  ]
+
+  dirs.each do |path|
+    directory path do
+      owner admin['id']
+      group admin['id']
+      mode '0755'
+    end
   end
-end
 
-# Install systemd emacs service
-cookbook_file "emacs-service" do
-  path "/home/mufasa/.config/systemd/user/emacs.service"
-  action :create
-  mode "0644"
-  owner 'mufasa'
-  group 'mufasa'
-end
-
-# Install Awesome Config
-git "/home/mufasa/.config/awesome" do
-  repository "git://github.com/grubernaut/awesome-copycats"
-  reference "master"
-  action :sync
-  user "mufasa"
-  group "mufasa"
-end
-
-# Install oh-my-zsh
-git "/home/mufasa/.oh-my-zsh" do
-  repository "git://github.com/robbyrussell/oh-my-zsh"
-  reference "master"
-  action :sync
-  user "mufasa"
-  group "mufasa"
-end
-
-# Install Emacs Config
-git "/home/mufasa/.emacs.d" do
-  repository "git://github.com/grubernaut/emacs.d"
-  reference "master"
-  action :sync
-  user "mufasa"
-  group "mufasa"
-end
-
-files = {
-  "dot-xinitrc" => "/home/mufasa/.xinitrc",
-  "dot-xmodmap" => "/home/mufasa/.Xmodmap",
-  "dot-xresources" => "/home/mufasa/.Xresources",
-  "dot-aliases" => "/home/mufasa/.zshaliases",
-  "dot-zshrc"      => "/home/mufasa/.zshrc"
-}
-
-files.each do |file, path|
-  cookbook_file "#{file}" do
-    path "#{path}"
+  # Install systemd emacs service
+  cookbook_file "emacs-service" do
+    path "#{admin['home']}/.config/systemd/user/emacs.service"
     action :create
     mode "0644"
-    owner "mufasa"
-    group "mufasa"
+    owner admin['id']
+    group admin['id']
+  end
+
+  # Install Awesome Config
+  git "#{admin['home']}/.config/awesome" do
+    repository "git://github.com/grubernaut/awesome-copycats"
+    reference "master"
+    action :sync
+    user admin['id']
+    group admin['id']
+  end
+
+  # Install oh-my-zsh
+  git "#{admin['home']}/.oh-my-zsh" do
+    repository "git://github.com/robbyrussell/oh-my-zsh"
+    reference "master"
+    action :sync
+    user admin['id']
+    group admin['id']
+  end
+
+  # Install Emacs Config
+  git "#{admin['home']}/.emacs.d" do
+    repository "git://github.com/grubernaut/emacs.d"
+    reference "master"
+    action :sync
+    user admin['id']
+    group admin['id']
+  end
+
+  files = {
+    "dot-xinitrc" => "#{admin['home']}/.xinitrc",
+    "dot-xmodmap" => "#{admin['home']}/.Xmodmap",
+    "dot-xresources" => "#{admin['home']}/.Xresources",
+    "dot-aliases" => "#{admin['home']}/.zshaliases",
+    "dot-zshrc"      => "#{admin['home']}/.zshrc"
+  }
+
+  files.each do |file, path|
+    cookbook_file file do
+      path path
+      action :create
+      mode "0644"
+      owner admin['id']
+      group admin['id']
+    end
   end
 end

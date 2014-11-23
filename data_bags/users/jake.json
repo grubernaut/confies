@@ -1,0 +1,7 @@
+{
+  "id"      : "jake",
+  "comment" : "Jake Champlin",
+  "home"    : "/home/jake",
+  "groups"  : ["jake", "docker", "wheel"],
+  "password": "$1$tbTRVpAx$MFSCA6xGs0uPsNNVliTr10"
+}
