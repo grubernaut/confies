@@ -31,6 +31,7 @@ packages = [
   "atom-editor",
   "emacs",
   "ruby-shadow",
+  "ttf-meslo",
   "dropbox"
 ]
 

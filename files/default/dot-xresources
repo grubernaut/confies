@@ -72,7 +72,7 @@
 
 ! URXVT Options
 URxvt.scrollBar: false
-URxvt.font: xft:Deja Vu Sans Mono:pixelsize=13
+URxvt.font: xft:Meslo LG L DZ:pixelsize=13
 URxvt.perl-ext-common: tabbedex,default,matcher,clipboard
 URxvt.url-launcher: /usr/bin/google-chrome-stable
 URxvt.matcher.button: 1
