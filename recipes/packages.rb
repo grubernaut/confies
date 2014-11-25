@@ -32,7 +32,10 @@ packages = [
   "emacs",
   "ruby-shadow",
   "ttf-meslo",
-  "dropbox"
+  "dropbox",
+  "ruby-install",
+  "chruby",
+  "virtualbox-bin"
 ]
 
 packages.each do |pkg|

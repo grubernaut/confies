@@ -53,7 +53,7 @@ bindkey -M emacs '^N' history-substring-search-down
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export PATH="$HOME/.gem/ruby/2.1.0/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+export PATH="$GEM_HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export EDITOR='emacsclient -a ""'
 source $HOME/.zshaliases

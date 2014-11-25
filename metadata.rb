@@ -4,7 +4,7 @@ maintainer_email 'jake.champlin.27@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures confies'
 long_description 'Installs/Configures confies'
-version          '0.1.4'
+version          '0.1.5'
 
 depends 'pacman'
 depends 'oh-my-zsh', '~> 0.4.3'
