@@ -45,7 +45,7 @@ ZSH_THEME="blinks"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux docker gem zsh-syntax-highlighting vagrant history-substring-search knife knife_ssh colorize ssh-agent)
+plugins=(git archlinux docker gem zsh-syntax-highlighting vagrant history-substring-search knife knife_ssh colorize ssh-agent fabric bundler)
 
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
@@ -53,7 +53,13 @@ bindkey -M emacs '^N' history-substring-search-down
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+source $HOME/.zprofile
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export PATH="$GEM_HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export EDITOR='emacsclient -a ""'
 source $HOME/.zshaliases
+chruby ruby-1.9
+export PYTHONPATH="/usr/lib/python2.7/site-packages/:$PYTHONPATH"
+clear
+/usr/bin/python3 /usr/bin/archey3
+fortune -s
