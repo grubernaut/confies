@@ -75,7 +75,7 @@ admins.each do |login|
     "dot-zshrc"      => "#{admin['home']}/.zshrc",
     "accels.scm"     => "#{admin['home']}/.config/xfce4/terminal/accels.scm",
     "terminalrc"     => "#{admin['home']}/.config/xfce4/terminal/terminalrc",
-    "dot-tmux"       => "#{admin['home']}/.tmuxrc"
+    "dot-tmux"       => "#{admin['home']}/.tmux.conf"
   }
 
   files.each do |file, path|
