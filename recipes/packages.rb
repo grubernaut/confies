@@ -51,6 +51,7 @@ packages = [
   "ubuntu-sounds",
   "urxvt-clipboard",
   "urxvt-tabbedex",
+  "xfce4-terminal",
   "vagrant",
   "vlc",
   "vim",

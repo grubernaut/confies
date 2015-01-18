@@ -88,4 +88,4 @@ URxvt.tabbed.tab-bg: 14
 URxvt.secondaryWheel: 1
 
 Xft.lcdfilter: lcddefault
-Xft.rgba: bgr
+Xft.rgba: rgb

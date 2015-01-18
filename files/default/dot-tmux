@@ -1,0 +1,33 @@
+# basic settings
+set -g default-terminal "screen-256color"
+
+setw -g xterm-keys on
+set -g base-index 1
+set -g pane-base-index 1
+set -s escape-time 0
+setw -g mode-mouse on
+set -ga terminal-override ',rxvt-uni*:XT:Ms=\E]52;%p1%s;%p2%s\007'
+set -g mouse-select-pane on
+set -g history-limit 100000
+set -g status on
+set -g status-utf8 on
+
+# bindings
+# first rebind prefix
+unbind C-b
+set -g prefix C-z
+bind C-z send-prefix
+
+# easily reload config
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# memorable splits
+bind = split-window -h
+bind - split-window -v
+
+# Change Panes with C-z-/ <pane-number>
+bind-key / display-panes\; select-pane -t :.
+set -g display-panes-time 2000
+
+# Powerline up in here
+source '/usr/share/tmux/powerline.conf'

@@ -19,7 +19,8 @@ admins.each do |login|
     admin['home'],
     "#{admin['home']}/.config",
     "#{admin['home']}/.config/systemd",
-    "#{admin['home']}/.config/systemd/user"
+    "#{admin['home']}/.config/systemd/user",
+    "#{admin['home']}/.config/xfce4/terminal"
   ]
 
   dirs.each do |path|
@@ -71,7 +72,10 @@ admins.each do |login|
     "dot-xmodmap" => "#{admin['home']}/.Xmodmap",
     "dot-xresources" => "#{admin['home']}/.Xresources",
     "dot-aliases" => "#{admin['home']}/.zshaliases",
-    "dot-zshrc"      => "#{admin['home']}/.zshrc"
+    "dot-zshrc"      => "#{admin['home']}/.zshrc",
+    "accels.scm"     => "#{admin['home']}/.config/xfce4/terminal/accels.scm",
+    "terminalrc"     => "#{admin['home']}/.config/xfce4/terminal/terminalrc",
+    "dot-tmux"       => "#{admin['home']}/.tmuxrc"
   }
 
   files.each do |file, path|
