@@ -159,5 +159,5 @@ alias gwC='git clean -f'
 alias gwx='git rm -r'
 alias gwX='git rm -rf'
 
-## SSH so remote host doesn't flip at urxvt
-alias ssh='TERM=xterm-color ssh'
+# Git Rebase Merge-Base 
+alias grm='git rebase -i $(git merge-base master HEAD)
